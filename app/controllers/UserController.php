@@ -56,4 +56,28 @@ class UserController {
     require_once __DIR__ . '/../views/profile.php';
 }
 
+public function updateProfile() {
+    if (!isset($_SESSION['user'])) {
+        header('Location: /mvp-bootstrap/public/login');
+        exit;
+    }
+
+    $userId = $_SESSION['user']['id'];
+    $address = $_POST['address'] ?? '';
+    $about = $_POST['about'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $cpf = $_POST['cpf'] ?? '';
+    
+    // Atualizar dados no banco
+    $stmt = $this->db->prepare("UPDATE users SET address = ?, about = ?, phone = ?, cpf = ? WHERE id = ?");
+    $stmt->execute([$address, $about, $phone, $cpf, $userId]);
+
+    $_SESSION['user']['address'] = $address;
+    $_SESSION['user']['about'] = $about;
+    $_SESSION['user']['phone'] = $phone;
+    $_SESSION['user']['cpf'] = $cpf;
+
+    header('Location: /mvp-bootstrap/public/profile');
+}
+
 }
