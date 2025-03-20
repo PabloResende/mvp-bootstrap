@@ -42,17 +42,18 @@ class UserController {
         }
     }
 
-    public function profile() {
-        if (!isset($_SESSION['user'])) {
-            header('Location: /mvp-bootstrap/public/login');
-            exit;
-        }
-        require __DIR__ . '/../views/profile/dashboard.php';
-    }
-
     public function logout() {
         session_destroy();
         header('Location: /mvp-bootstrap/public/login');
         exit;
     }
+
+    public function profile() {
+    if (!isset($_SESSION['user'])) {
+        header('Location: /mvp-bootstrap/public/login');
+        exit;
+    }
+    require_once __DIR__ . '/../views/profile.php';
+}
+
 }
