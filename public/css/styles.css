@@ -1,0 +1,21 @@
+/* Modo Claro */
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+.navbar.light-mode {
+    background-color: #ffffff !important;
+}
+
+/* Modo Escuro */
+body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+.navbar.dark-mode {
+    background-color: #333 !important;
+}
+.card-dark {
+    background-color: #333;
+    color: white;
+}

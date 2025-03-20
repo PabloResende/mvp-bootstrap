@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVP</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/mvp-bootstrap/public/css/style.css">
 </head>
-<body>
+<body class="light-mode">
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" href="/mvp-bootstrap/public/">MVP</a>
@@ -17,7 +18,7 @@
       <ul class="navbar-nav">
         <?php if (isset($_SESSION['user'])): ?>
           <li class="nav-item">
-            <a class="nav-link" href="/mvp-bootstrap/public/profile">Dashboard</a>
+            <a class="nav-link" href="/mvp-bootstrap/public/profile">Perfil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/mvp-bootstrap/public/logout">Logout</a>
@@ -31,6 +32,7 @@
           </li>
         <?php endif; ?>
       </ul>
+      <button id="toggle-dark-mode" class="btn btn-outline-dark ms-3">🌙</button>
     </div>
   </div>
 </nav>
