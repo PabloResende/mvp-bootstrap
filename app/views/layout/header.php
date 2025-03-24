@@ -32,7 +32,6 @@
           </li>
         <?php endif; ?>
       </ul>
-      <button id="toggle-dark-mode" class="btn btn-sm btn-outline-secondary ms-3">🌙/☀️</button>
     </div>
   </div>
 </nav>
