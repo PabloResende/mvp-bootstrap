@@ -1,9 +1,13 @@
 <?php
 session_start();
-require_once __DIR__ . '/../models/User.php';  // Corrigido
+require_once __DIR__ . '/../models/User.php';
 
 class UserController {
     public function login() {
+        if (isset($_SESSION['user'])) {
+            header('Location: /mvp-bootstrap/public/dashboard');
+            exit;
+        }
         require __DIR__ . '/../views/auth/login.php';
     }
 
@@ -16,7 +20,7 @@ class UserController {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user;
-            header('Location: /mvp-bootstrap/public/profile');
+            header('Location: /mvp-bootstrap/public/dashboard');
             exit;
         } else {
             $error = "Invalid email or password.";
@@ -42,42 +46,25 @@ class UserController {
         }
     }
 
+    public function dashboard() {
+        if (!isset($_SESSION['user'])) {
+            header('Location: /mvp-bootstrap/public/login');
+            exit;
+        }
+        require __DIR__ . '/../views/dashboard/index.php';
+    }
+
+    public function profile() {
+        if (!isset($_SESSION['user'])) {
+            header('Location: /mvp-bootstrap/public/login');
+            exit;
+        }
+        require __DIR__ . '/../views/profile.php';
+    }    
+
     public function logout() {
         session_destroy();
         header('Location: /mvp-bootstrap/public/login');
         exit;
     }
-
-    public function profile() {
-    if (!isset($_SESSION['user'])) {
-        header('Location: /mvp-bootstrap/public/login');
-        exit;
-    }
-    require_once __DIR__ . '/../views/profile.php';
-}
-
-public function updateProfile() {
-    if (!isset($_SESSION['user'])) {
-        header('Location: /mvp-bootstrap/public/login');
-        exit;
-    }
-
-    $userId = $_SESSION['user']['id'];
-    $address = $_POST['address'] ?? '';
-    $about = $_POST['about'] ?? '';
-    $phone = $_POST['phone'] ?? '';
-    $cpf = $_POST['cpf'] ?? '';
-    
-    // Atualizar dados no banco
-    $stmt = $this->db->prepare("UPDATE users SET address = ?, about = ?, phone = ?, cpf = ? WHERE id = ?");
-    $stmt->execute([$address, $about, $phone, $cpf, $userId]);
-
-    $_SESSION['user']['address'] = $address;
-    $_SESSION['user']['about'] = $about;
-    $_SESSION['user']['phone'] = $phone;
-    $_SESSION['user']['cpf'] = $cpf;
-
-    header('Location: /mvp-bootstrap/public/profile');
-}
-
 }

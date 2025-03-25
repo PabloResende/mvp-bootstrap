@@ -1,44 +1,44 @@
-<?php require __DIR__ . '/layout/header.php'; ?>
+<?php require __DIR__ . '../layout/header.php'; ?>
 
-<div class="d-flex justify-content-center align-items-center vh-100">
-  <div class="card p-4 text-center" style="width: 400px;">
-    <img src="<?php echo !empty($_SESSION['user']['profile_picture']) ? '/mvp-bootstrap/public/uploads/' . $_SESSION['user']['profile_picture'] : 'https://via.placeholder.com/100'; ?>" 
-         class="rounded-circle mb-3" alt="Avatar" width="100">
+<div class="flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-96 text-center">
+        <img src="<?php echo !empty($_SESSION['user']['profile_picture']) ? '/mvp-bootstrap/public/uploads/' . $_SESSION['user']['profile_picture'] : 'https://via.placeholder.com/100'; ?>" 
+             class="rounded-full mx-auto mb-4" alt="Avatar" width="100">
 
-    <h2><?php echo htmlspecialchars($_SESSION['user']['name']); ?></h2>
-    <p class="text-muted"><?php echo htmlspecialchars($_SESSION['user']['email']); ?></p>
+        <h2 class="text-2xl font-semibold"><?php echo htmlspecialchars($_SESSION['user']['name']); ?></h2>
+        <p class="text-gray-500"><?php echo htmlspecialchars($_SESSION['user']['email']); ?></p>
 
-    <form action="/mvp-bootstrap/public/update_profile" method="POST" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label>Endereço</label>
-        <input type="text" name="address" class="form-control" value="<?php echo htmlspecialchars($_SESSION['user']['address'] ?? ''); ?>">
-      </div>
+        <form action="/mvp-bootstrap/public/update_profile" method="POST" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <label class="block text-left">Endereço</label>
+                <input type="text" name="address" class="border rounded p-2 w-full" value="<?php echo htmlspecialchars($_SESSION['user']['address'] ?? ''); ?>">
+            </div>
 
-      <div class="mb-3">
-        <label>Sobre Mim</label>
-        <textarea name="about" class="form-control"><?php echo htmlspecialchars($_SESSION['user']['about'] ?? ''); ?></textarea>
-      </div>
+            <div class="mb-3">
+                <label class="block text-left">Sobre Mim</label>
+                <textarea name="about" class="border rounded p-2 w-full"><?php echo htmlspecialchars($_SESSION['user']['about'] ?? ''); ?></textarea>
+            </div>
 
-      <div class="mb-3">
-        <label>Telefone</label>
-        <input type="text" name="phone" class="form-control" id="phone" value="<?php echo htmlspecialchars($_SESSION['user']['phone'] ?? ''); ?>">
-      </div>
+            <div class="mb-3">
+                <label class="block text-left">Telefone</label>
+                <input type="text" name="phone" class="border rounded p-2 w-full" id="phone" value="<?php echo htmlspecialchars($_SESSION['user']['phone'] ?? ''); ?>">
+            </div>
 
-      <div class="mb-3">
-        <label>CPF</label>
-        <input type="text" name="cpf" class="form-control" id="cpf" value="<?php echo htmlspecialchars($_SESSION['user']['cpf'] ?? ''); ?>">
-      </div>
+            <div class="mb-3">
+                <label class="block text-left">CPF</label>
+                <input type="text" name="cpf" class="border rounded p-2 w-full" id="cpf" value="<?php echo htmlspecialchars($_SESSION['user']['cpf'] ?? ''); ?>">
+            </div>
 
-      <div class="mb-3">
-        <label>Foto de Perfil</label>
-        <input type="file" name="profile_picture" class="form-control">
-      </div>
+            <div class="mb-3">
+                <label class="block text-left">Foto de Perfil</label>
+                <input type="file" name="profile_picture" class="border rounded p-2 w-full">
+            </div>
 
-      <button type="submit" class="btn btn-primary w-100">Salvar Alterações</button>
-    </form>
+            <button type="submit" class="bg-blue-600 text-white p-2 w-full rounded">Salvar Alterações</button>
+        </form>
 
-    <a href="/mvp-bootstrap/public/logout" class="btn btn-danger w-100 mt-3">Logout</a>
-  </div>
+        <a href="/mvp-bootstrap/public/logout" class="block bg-red-600 text-white p-2 w-full rounded mt-3">Logout</a>
+    </div>
 </div>
 
 <script>
@@ -58,4 +58,4 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<?php require __DIR__ . '/layout/footer.php'; ?>
+<?php require __DIR__ . '../layout/footer.php'; ?>
