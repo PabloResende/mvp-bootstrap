@@ -1,4 +1,4 @@
-<?php require __DIR__ . '../layout/header.php'; ?>
+<?php require __DIR__ . '/../layout/header.php'; ?>
 
 <div class="flex items-center justify-center min-h-screen">
     <div class="bg-white shadow-lg rounded-lg p-6 w-96 text-center">
@@ -58,4 +58,4 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<?php require __DIR__ . '../layout/footer.php'; ?>
+<?php require __DIR__ . '/../layout/footer.php'; ?>
