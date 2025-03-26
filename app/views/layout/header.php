@@ -10,10 +10,10 @@ $lang = $_GET['lang'] ?? $_SESSION['lang'] ?? 'pt';
 
 // Definição das bandeiras e nomes dos idiomas
 $flags = [
-    'pt' => ['name' => 'Português', 'flag' => '/mvp-bootstrap/public/assets/flags/pt.png'],
-    'en' => ['name' => 'English', 'flag' => '/mvp-bootstrap/public/assets/flags/us.png'],
-    'de' => ['name' => 'Deutsch', 'flag' => '/mvp-bootstrap/public/assets/flags/de.png'],
-    'fr' => ['name' => 'Français', 'flag' => '/mvp-bootstrap/public/assets/flags/fr.png'],
+    'pt' => ['name' => 'Português', 'flag' => '/mvp-tailwind/public/assets/flags/pt.png'],
+    'en' => ['name' => 'English', 'flag' => '/mvp-tailwind/public/assets/flags/us.png'],
+    'de' => ['name' => 'Deutsch', 'flag' => '/mvp-tailwind/public/assets/flags/de.png'],
+    'fr' => ['name' => 'Français', 'flag' => '/mvp-tailwind/public/assets/flags/fr.png'],
 ];
 
 // Verifica se a linguagem existe no array antes de definir a bandeira
@@ -25,20 +25,20 @@ $currentFlag = isset($flags[$lang]) ? '<img src="' . $flags[$lang]['flag'] . '" 
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>MVP Bootstrap</title>  
+    <title>MVP tailwind</title>  
     <script src="https://cdn.tailwindcss.com"></script>  
 </head>  
 <body class="bg-gray-100 text-gray-900">  
     <nav class="bg-blue-600 p-4 text-white flex justify-between items-center">  
-        <a href="/mvp-bootstrap/public/" class="font-bold">MVP</a>  
+        <a href="/mvp-tailwind/public/" class="font-bold">MVP</a>  
         <div class="flex items-center gap-4">  
             <?php if (isset($_SESSION['user'])): ?>  
-                <a href="/mvp-bootstrap/public/dashboard" class="px-4"><?= $langText['dashboard'] ?></a>  
-                <a href="/mvp-bootstrap/public/profile" class="px-4"><?= $langText['profile'] ?></a>  
-                <a href="/mvp-bootstrap/public/logout" class="px-4"><?= $langText['logout'] ?></a>  
+                <a href="/mvp-tailwind/public/dashboard" class="px-4"><?= $langText['dashboard'] ?></a>  
+                <a href="/mvp-tailwind/public/profile" class="px-4"><?= $langText['profile'] ?></a>  
+                <a href="/mvp-tailwind/public/logout" class="px-4"><?= $langText['logout'] ?></a>  
             <?php else: ?>  
-                <a href="/mvp-bootstrap/public/login" class="px-4"><?= $langText['login'] ?></a>  
-                <a href="/mvp-bootstrap/public/register" class="px-4"><?= $langText['register'] ?></a>  
+                <a href="/mvp-tailwind/public/login" class="px-4"><?= $langText['login'] ?></a>  
+                <a href="/mvp-tailwind/public/register" class="px-4"><?= $langText['register'] ?></a>  
             <?php endif; ?>  
 
             <!-- Language Selector -->  

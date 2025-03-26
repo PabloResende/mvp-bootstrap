@@ -12,7 +12,7 @@
     <div class="flex items-center justify-center h-screen">  
         <div class="bg-white p-6 rounded shadow-md w-96">  
             <h2 class="text-2xl mb-4"><?= $langText['register'] ?></h2>  
-            <form action="/mvp-bootstrap/public/store" method="POST" enctype="multipart/form-data">  
+            <form action="/mvp-tailwind/public/store" method="POST" enctype="multipart/form-data">  
                 <div class="mb-4">  
                     <label>Name</label>  
                     <input type="text" name="name" class="border p-2 w-full" required>  

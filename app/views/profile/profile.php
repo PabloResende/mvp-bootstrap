@@ -2,13 +2,13 @@
 
 <div class="flex items-center justify-center min-h-screen">
     <div class="bg-white shadow-lg rounded-lg p-6 w-96 text-center">
-        <img src="<?php echo !empty($_SESSION['user']['profile_picture']) ? '/mvp-bootstrap/public/uploads/' . $_SESSION['user']['profile_picture'] : 'https://via.placeholder.com/100'; ?>" 
+        <img src="<?php echo !empty($_SESSION['user']['profile_picture']) ? '/mvp-tailwind/public/uploads/' . $_SESSION['user']['profile_picture'] : 'https://via.placeholder.com/100'; ?>" 
              class="rounded-full mx-auto mb-4" alt="Avatar" width="100">
 
         <h2 class="text-2xl font-semibold"><?php echo htmlspecialchars($_SESSION['user']['name']); ?></h2>
         <p class="text-gray-500"><?php echo htmlspecialchars($_SESSION['user']['email']); ?></p>
 
-        <form action="/mvp-bootstrap/public/update_profile" method="POST" enctype="multipart/form-data" class="mt-4">
+        <form action="/mvp-tailwind/public/update_profile" method="POST" enctype="multipart/form-data" class="mt-4">
             <div class="mb-3">
                 <label class="block text-left">Endereço</label>
                 <input type="text" name="address" class="border rounded p-2 w-full" value="<?php echo htmlspecialchars($_SESSION['user']['address'] ?? ''); ?>">
@@ -37,7 +37,7 @@
             <button type="submit" class="bg-blue-600 text-white p-2 w-full rounded">Salvar Alterações</button>
         </form>
 
-        <a href="/mvp-bootstrap/public/logout" class="block bg-red-600 text-white p-2 w-full rounded mt-3">Logout</a>
+        <a href="/mvp-tailwind/public/logout" class="block bg-red-600 text-white p-2 w-full rounded mt-3">Logout</a>
     </div>
 </div>
 

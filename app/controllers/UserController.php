@@ -64,7 +64,7 @@ class UserController {
 
     private function redirect($path) {
         $langQuery = isset($_SESSION['lang']) ? '?lang=' . $_SESSION['lang'] : '';
-        header("Location: /mvp-bootstrap/public$path$langQuery");
+        header("Location: /mvp-tailwind/public$path$langQuery");
         exit;
     }
 }

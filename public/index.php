@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../app/controllers/UserController.php';
 
 $uri = $_SERVER['REQUEST_URI'];
-$basePath = '/mvp-bootstrap/public';
+$basePath = '/mvp-tailwind/public';
 $route = str_replace($basePath, '', $uri);
 
 // Verifica se há um parâmetro de idioma e salva na sessão/cookie

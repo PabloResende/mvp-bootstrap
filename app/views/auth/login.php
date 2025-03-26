@@ -15,7 +15,7 @@
             <?php if(isset($error)): ?>
                 <div class="text-red-500"><?php echo htmlspecialchars($error); ?></div>
             <?php endif; ?>
-            <form action="/mvp-bootstrap/public/auth" method="POST">
+            <form action="/mvp-tailwind/public/auth" method="POST">
                 <div class="mb-4">
                     <label>Email</label>
                     <input type="email" name="email" class="border p-2 w-full" required>
