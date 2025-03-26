@@ -5,6 +5,16 @@ $uri = $_SERVER['REQUEST_URI'];
 $basePath = '/mvp-bootstrap/public';
 $route = str_replace($basePath, '', $uri);
 
+// Verifica se há um parâmetro de idioma e salva na sessão/cookie
+if (isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+    $_SESSION['lang'] = $lang;
+    setcookie('lang', $lang, time() + (86400 * 30), "/");
+}
+
+// Remove parâmetros GET da URL antes de processar as rotas
+$route = strtok($route, '?'); 
+
 $controller = new UserController();
 
 switch ($route) {

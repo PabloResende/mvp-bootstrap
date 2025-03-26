@@ -5,8 +5,7 @@ require_once __DIR__ . '/../models/User.php';
 class UserController {
     public function login() {
         if (isset($_SESSION['user'])) {
-            header('Location: /mvp-bootstrap/public/dashboard');
-            exit;
+            $this->redirect('/dashboard');
         }
         require __DIR__ . '/../views/auth/login.php';
     }
@@ -20,8 +19,7 @@ class UserController {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user;
-            header('Location: /mvp-bootstrap/public/dashboard');
-            exit;
+            $this->redirect('/dashboard');
         } else {
             $error = "Invalid email or password.";
             require __DIR__ . '/../views/auth/login.php';
@@ -41,30 +39,32 @@ class UserController {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $userModel = new User();
             $userModel->create($name, $email, $hashedPassword);
-            header('Location: /mvp-bootstrap/public/login');
-            exit;
+            $this->redirect('/login');
         }
     }
 
     public function dashboard() {
         if (!isset($_SESSION['user'])) {
-            header('Location: /mvp-bootstrap/public/login');
-            exit;
+            $this->redirect('/login');
         }
         require __DIR__ . '/../views/dashboard/index.php';
     }
 
     public function profile() {
         if (!isset($_SESSION['user'])) {
-            header('Location: /mvp-bootstrap/public/login');
-            exit;
+            $this->redirect('/login');
         }
         require __DIR__ . '/../views/profile/profile.php';
     }    
 
     public function logout() {
         session_destroy();
-        header('Location: /mvp-bootstrap/public/login');
+        $this->redirect('/login');
+    }
+
+    private function redirect($path) {
+        $langQuery = isset($_SESSION['lang']) ? '?lang=' . $_SESSION['lang'] : '';
+        header("Location: /mvp-bootstrap/public$path$langQuery");
         exit;
     }
 }

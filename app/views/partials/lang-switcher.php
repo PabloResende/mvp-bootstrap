@@ -6,8 +6,10 @@
     </select>  
 </div>  
 
-<script>  
-    function changeLanguage(lang) {  
-        window.location.href = "<?= $_SERVER['PHP_SELF'] ?>?lang=" + lang;  
-    }  
-</script>  
+<script>
+    function changeLanguage(lang) {
+        let currentUrl = window.location.pathname; // Mantém a rota correta
+        let newUrl = currentUrl + "?lang=" + lang;
+        window.location.href = newUrl;
+    }
+</script>
