@@ -59,7 +59,7 @@ class UserController {
             header('Location: /mvp-bootstrap/public/login');
             exit;
         }
-        require __DIR__ . '/../views/profile.php';
+        require __DIR__ . '/../views/profile/profile.php';
     }    
 
     public function logout() {
