@@ -18,5 +18,6 @@ A minimal PHP MVC structure with Bootstrap, login, registration, and profile das
 ## Routes
 - `/login` - Login page
 - `/register` - Registration form
-- `/profile` - Dashboard after login
+- `/dashboard` - Dashboard after login
+- `/profile` - Profile
 - `/logout` - End session
