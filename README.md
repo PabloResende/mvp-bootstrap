@@ -1,14 +1,15 @@
-# MVP Bootstrap Project
+# MVP TailwindCss Project
 
 ## Overview
-A minimal PHP MVC structure with Bootstrap, login, registration, and profile dashboard.
+A minimal PHP MVC structure with TailwindCss, login, registration, and profile dashboard.
 
 ## Features
 - Secure login and registration using password hashing
 - Profile page accessible only after login
 - Clean structure with controllers, models, and views
-- Bootstrap UI for styling
+- TailwindCss UI for styling
 - Simple routing using .htaccess
+- Diferent languages
 
 ## Setup
 1. Import `mvp_db.sql` into your MySQL.
