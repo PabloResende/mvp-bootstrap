@@ -1,10 +1,8 @@
 <?php
-// Garante que a sessão só será iniciada se ainda não estiver ativa
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Definição do idioma com prioridade: GET → Sessão → Cookie → Padrão (pt)
 if (isset($_GET['lang'])) {
     $lang = $_GET['lang'];
     $_SESSION['lang'] = $lang;
