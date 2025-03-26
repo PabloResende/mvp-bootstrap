@@ -1,7 +1,6 @@
 <?php
 
 return [
-        'welcome' => 'Bem-vindo ao sistema!',
         'login' => 'Entrar',
         'register' => 'Registrar',
         'logout' => 'Sair',

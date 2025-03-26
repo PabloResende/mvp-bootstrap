@@ -8,7 +8,6 @@
     <title><?= $langText['login'] ?></title>
 </head>
 <body>
-    <h1 class="text-center text-2xl mt-4"><?= $langText['welcome'] ?></h1>
 
     <div class="flex items-center justify-center h-screen">
         <div class="bg-white p-6 rounded shadow-md w-96">
